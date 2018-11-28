@@ -43,7 +43,7 @@ define( function( require ) {
   var Profiler = require( 'JOIST/Profiler' );
   var Property = require( 'AXON/Property' );
   var ScreenshotGenerator = require( 'JOIST/ScreenshotGenerator' );
-  var soundManager = require( 'TAMBO/soundManager' );
+  // var soundManager = require( 'TAMBO/soundManager' );
   var Tandem = require( 'TANDEM/Tandem' );
   var timer = require( 'PHET_CORE/timer' );
   var UpdateCheck = require( 'JOIST/UpdateCheck' );
@@ -77,7 +77,7 @@ define( function( require ) {
   function Sim( name, screens, options ) {
     var self = this;
     // window.phetSplashScreenDownloadComplete();
-    window.phetSplashScreen.dispose();
+    // window.phetSplashScreen.dispose();
 
     // playbackModeEnabledProperty cannot be changed after Sim construction has begun, hence this listener is added before
     // anything else is done, see https://github.com/phetsims/phet-io/issues/1146
@@ -196,10 +196,10 @@ define( function( require ) {
 
         // TODO: we are /1000 just to *1000?  Seems wasteful and like opportunity for error. See https://github.com/phetsims/joist/issues/387
         // Store the elapsed time in milliseconds for usage by Tween clients
-        phet.joist.elapsedTime = phet.joist.elapsedTime + dt * 1000;
+        // phet.joist.elapsedTime = phet.joist.elapsedTime + dt * 1000;
 
         // timer step before model/view steps, see https://github.com/phetsims/joist/issues/401
-        timer.emit1( dt );
+        // timer.emit1( dt );
 
         // If the DT is 0, we will skip the model step (see https://github.com/phetsims/joist/issues/171)
         if ( screen && screen.model.step && dt ) {
@@ -211,7 +211,7 @@ define( function( require ) {
         // See https://github.com/phetsims/joist/issues/401.
         //TODO https://github.com/phetsims/joist/issues/404 run TWEENs for the selected screen only
         if ( window.TWEEN ) {
-          window.TWEEN.update( phet.joist.elapsedTime );
+          // window.TWEEN.update( phet.joist.elapsedTime );
         }
 
         // View step is the last thing before updateDisplay(), so we can do paint updates there.
@@ -409,19 +409,21 @@ define( function( require ) {
     // flags or query params.
 
     // @public (joist-internal, read-only) {boolean} - true if the simulation supports sound and sound is enabled
-    this.supportsSound = ( phet.chipper.queryParameters.supportsSound || options.supportsSound ) &&
-                         ( phet.chipper.queryParameters.sound === 'enabled' ||
-                           phet.chipper.queryParameters.sound === 'muted' ) &&
-                         !platform.ie;
+    this.supportsSound = false;
+    // ( phet.chipper.queryParameters.supportsSound || options.supportsSound ) &&
+    //                      ( phet.chipper.queryParameters.sound === 'enabled' ||
+    //                        phet.chipper.queryParameters.sound === 'muted' ) &&
+    //                      !platform.ie;
 
     // @public (joist-internal, read-only) {boolean} - true if the simulation supports enhanced sound, cannot support
     // enhanced without supporting sound in general
-    this.supportsEnhancedSound = this.supportsSound &&
-                                 ( phet.chipper.queryParameters.supportsEnhancedSound || options.supportsEnhancedSound );
+    this.supportsEnhancedSound =  false;
+    // this.supportsSound &&
+    //                              ( phet.chipper.queryParameters.supportsEnhancedSound || options.supportsEnhancedSound );
 
     // Initialize the sound library if enabled.
     if ( this.supportsSound ) {
-      soundManager.initialize( this.browserTabVisibleProperty, this.activeProperty );
+      // soundManager.initialize( this.browserTabVisibleProperty, this.activeProperty );
     }
 
     assert && assert( !window.phet.joist.sim, 'Only supports one sim at a time' );

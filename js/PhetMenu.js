@@ -29,7 +29,7 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var ScreenshotGenerator = require( 'JOIST/ScreenshotGenerator' );
   var Shape = require( 'KITE/Shape' );
-  var soundManager = require( 'TAMBO/soundManager' );
+  // var soundManager = require( 'TAMBO/soundManager' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
   var UpdateCheck = require( 'JOIST/UpdateCheck' );
@@ -37,7 +37,7 @@ define( function( require ) {
 
   // strings
   var menuItemAboutString = require( 'string!JOIST/menuItem.about' );
-  var menuItemEnhancedSoundString = require( 'string!JOIST/menuItem.enhancedSound' );
+  // var menuItemEnhancedSoundString = require( 'string!JOIST/menuItem.enhancedSound' );
   var menuItemFullscreenString = require( 'string!JOIST/menuItem.fullscreen' );
   var menuItemGetUpdateString = require( 'string!JOIST/menuItem.getUpdate' );
   var menuItemMailInputEventsLogString = require( 'string!JOIST/menuItem.mailInputEventsLog' );
@@ -281,18 +281,18 @@ define( function( require ) {
       },
 
       // "Enhanced Sound" menu item
-      {
-        text: menuItemEnhancedSoundString,
-        present: sim.supportsEnhancedSound,
-        checkedProperty: soundManager.enhancedSoundEnabledProperty,
-        callback: function() {
-          soundManager.enhancedSoundEnabledProperty.set( !soundManager.enhancedSoundEnabledProperty.get() );
-        },
-        tandem: tandem.createTandem( 'enhancedSoundMenuItem' ),
-        phetioDocumentation: 'This menu item toggles between basic and enhanced sound modes.',
-        phetioState: false,
-        tagName: 'button'
-      },
+      // {
+      //   text: menuItemEnhancedSoundString,
+      //   present: sim.supportsEnhancedSound,
+      //   checkedProperty: soundManager.enhancedSoundEnabledProperty,
+      //   callback: function() {
+      //     soundManager.enhancedSoundEnabledProperty.set( !soundManager.enhancedSoundEnabledProperty.get() );
+      //   },
+      //   tandem: tandem.createTandem( 'enhancedSoundMenuItem' ),
+      //   phetioDocumentation: 'This menu item toggles between basic and enhanced sound modes.',
+      //   phetioState: false,
+      //   tagName: 'button'
+      // },
 
       // "Full Screen" menu item
       {

@@ -15,7 +15,7 @@ define( function( require ) {
   var KeyboardHelpButton = require( 'JOIST/KeyboardHelpButton' );
   var NavigationBarSoundToggleButton = require( 'JOIST/NavigationBarSoundToggleButton' );
   var platform = require( 'PHET_CORE/platform' );
-  var soundManager = require( 'TAMBO/soundManager' );
+  // var soundManager = require( 'TAMBO/soundManager' );
 
   /**
    * @param {Sim} sim
@@ -34,14 +34,14 @@ define( function( require ) {
     var a11yButtons = [];
 
     // only put the sound on/off button on the nav bar if the sound library is enabled
-    if ( sim.supportsSound ) {
-      var soundOnOffButton = new NavigationBarSoundToggleButton(
-        soundManager.enabledProperty,
-        backgroundColorProperty,
-        tandem.createTandem( 'soundOnOffButton' )
-      );
-      a11yButtons.push( soundOnOffButton );
-    }
+    // if ( sim.supportsSound ) {
+    //   var soundOnOffButton = new NavigationBarSoundToggleButton(
+    //     soundManager.enabledProperty,
+    //     backgroundColorProperty,
+    //     tandem.createTandem( 'soundOnOffButton' )
+    //   );
+    //   a11yButtons.push( soundOnOffButton );
+    // }
 
     // only show the keyboard help button if the sim is accessible, there is keyboard help content, and we are
     // not in mobile safari
